@@ -1,0 +1,47 @@
+#version: '3.8'
+
+services:
+  artexpression-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: artexpression-frontend
+    hostname: artexpression-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=production
+      - VITE_BACKEND_URL=artexpression-backend
+
+  artexpression-admin:
+    build:
+      context: ./admin
+      dockerfile: Dockerfile
+    container_name: artexpression-admin
+    hostname: artexpression-admin
+    ports:
+      - "5174:5174"
+    environment:
+      - NODE_ENV=production
+      - ITE_BACKEND_URL=artexpression-backend
+
+  artexpression-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: artexpression-backend
+    hostname: artexpression-backend
+    ports:
+      - "4000:4000"
+    environment:
+      MONGODB_URI: mongodb+srv://randalzaben:1234@cluster0.4nqqf.mongodb.net
+      CLOUDINARY_NAME: dmzkjpkeb
+      CLOUDINARY_API_KEY: 649969346897668
+      CLOUDINARY_SECRET_KEY: DvNMVLwDBYaqZxKdf2S4BP_cgQI
+      ADMIN_EMAIL: rand@artexpression.com
+      ADMIN_PASSWORD: rand54321
+      JWT_SECRET: IU UNI
+
+volumes:
+  artexpression-mongo-data:
+    name: artexpression-mongo-data
