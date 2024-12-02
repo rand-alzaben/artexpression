@@ -22,14 +22,15 @@ The ArtExpression platform is structured into three main directories:
 ### Clone the Repository
 
 To set up the project, clone the repository using the following command:
+
 ```
-    git clone [repository-URL]
-    cd [project-directory]
+git clone [repository-URL]
+cd [project-directory]
 ```
 
 ### Edit Environment Configurations
 
-Modify the Docker Compose file to update if needed:
+Before running the application, ensure you modify the Docker Compose file `.docker-compose.yaml` located in the project directory to set:
 - Host ports for the frontend,
 - Admin panel credentials (email and password),
 - MongoDB access credentials.
@@ -38,10 +39,15 @@ Modify the Docker Compose file to update if needed:
 
 Deploy the application using Docker Compose:
 ```
-    docker compose up -d --build
+docker compose up -d --build
 ```
 
+
 This command builds the project containers and starts the services as defined in the `docker-compose.yaml`.
+
+## Accessing Admin Panel
+
+The admin panel can be accessed at **http://localhost:5174**. Admin credentials, as set in the Docker Compose file, are required for access. If you need to set or update these, refer to the `artexpression-admin` service configuration in the Docker Compose file under `environment`.
 
 ## Ports Configuration
 
