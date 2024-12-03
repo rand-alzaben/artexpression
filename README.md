@@ -63,5 +63,5 @@ Access the API documentation at http://localhost:4000/ to verify the API functio
 
 ## Author
 
-Randal Zaben - Initial creator and lead developer  
+Randal Alzaben - Initial creator and lead developer  
 Email: rand.alzaben21@gmail.com
